@@ -33,3 +33,7 @@ export const startupByIdQuery =
   image,
   pitch,
 }`);
+
+export const startupPostViewQuery =
+  defineQuery(`*[_type == "startup" && _id == $id][0]{
+  _id, views}`);
