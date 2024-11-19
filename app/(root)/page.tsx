@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import Searchbar from "@/components/Searchbar";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
@@ -11,6 +12,10 @@ export default async function Home({
   const query = (await searchParams).query;
 
   const params = { search: query || null };
+
+  const session = await auth();
+
+  console.log(session?.id);
 
   const { data: post } = await sanityFetch({ query: startupQuery, params });
 
