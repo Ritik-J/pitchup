@@ -21,7 +21,6 @@ const page = async ({ params }: { params: { id: string } }) => {
   if (!post) {
     return notFound();
   }
-  console.log(post);
 
   const ParsedPitchContent = md.render(post?.pitch || "");
 

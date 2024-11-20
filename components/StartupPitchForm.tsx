@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useActionState, useState } from "react";
@@ -9,6 +10,7 @@ import { SendIcon } from "lucide-react";
 import { formSchema } from "@/lib/FormValidation";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
+import { createPitch } from "@/lib/ServerActions";
 import { useRouter } from "next/navigation";
 
 const StartupPitchForm = () => {
@@ -37,7 +39,7 @@ const StartupPitchForm = () => {
           description: "Your startup pitch has been created successfully",
         });
 
-        router.push(`/startup/${result._id}`);
+        router.push(`/startup/${result?._id}`);
       }
 
       return result;
